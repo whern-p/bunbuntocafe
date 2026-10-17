@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
+/*
+  สีและขนาดตัวอักษรของทั้งเว็บ — แก้ที่นี่ที่เดียว
+  โทน: ขาวครีม / เหลืองนวล / ส้ม autumn / เขียว-น้ำตาลใบไม้ร่วง
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #fffaf1;        /* พื้นหลังหลัก ขาวครีม */
+  --butter: #f7e7bf;       /* เหลืองนวล */
+  --butter-soft: #fbf1d8;  /* เหลืองนวลอ่อน สำหรับการ์ด/พื้นที่สลับ */
+  --autumn: #c8602a;       /* ส้ม autumn — ปุ่มหลัก */
+  --autumn-dark: #a64b1d;  /* ส้มเข้ม — ตอนชี้/กดปุ่ม */
+  --crust: #e0a458;        /* สีเปลือกขนมปัง */
+  --leaf: #6d7a3e;         /* เขียวใบไม้ร่วง */
+  --leaf-soft: #e6e7cf;    /* เขียวอ่อน */
+  --bark: #4a2f1d;         /* น้ำตาลเข้ม — ตัวหนังสือหลัก */
+  --bark-soft: #7a5c47;    /* น้ำตาลอ่อน — ตัวหนังสือรอง */
+  --line-green: #06c755;   /* สีปุ่ม LINE */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--cream);
+  --color-butter: var(--butter);
+  --color-butter-soft: var(--butter-soft);
+  --color-autumn: var(--autumn);
+  --color-autumn-dark: var(--autumn-dark);
+  --color-crust: var(--crust);
+  --color-leaf: var(--leaf);
+  --color-leaf-soft: var(--leaf-soft);
+  --color-bark: var(--bark);
+  --color-bark-soft: var(--bark-soft);
+  --color-line-green: var(--line-green);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+
+  /* ขนาดตัวอักษร (เล็กบนมือถือ ใหญ่ขึ้นบนคอมอัตโนมัติ) */
+  --text-hero: clamp(2.25rem, 1.6rem + 3.2vw, 4rem);
+  --text-hero--line-height: 1.25;
+  --text-title: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --text-title--line-height: 1.3;
+  --text-subtitle: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --text-subtitle--line-height: 1.55;
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--bark);
+}
+
+/* ลูกศรของคำถามที่พบบ่อย */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
 }
